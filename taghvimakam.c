@@ -152,6 +152,7 @@ int menu_choice_cheker(int choice)
                printf("\033[31m");
                printf("\033[1m");
                printf("invalid input for todays year or birth days year please try again!\n");
+               printf("\033[0m");
                printf("---------------------------Age Calculation------------------------\n");
                printf("\033[90m [0] \033[0m\033[1m back to menu!\n\n");
                printf("\033[90m [!] \033[0m\033[1m enter years in format year:---- \n\n");
