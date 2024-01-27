@@ -107,10 +107,10 @@ int menu_choice_cheker(int choice)
       }
       else if (year != 0)
       {
-         calender_year_checker(year);
+         year = calender_year_checker(year);
          printf("\033[90mplease enter a month:\033[0m");
          scanf("%d", &month);
-         calender_month_checker(month);
+         month = calender_month_checker(month);
          printing_month(month);
          taghvim(esfand, tedad_kabiseh, month, year);
       }
@@ -283,18 +283,11 @@ int calender_year_checker(int year)
    }
    if (year == 0)
    {
-      system("cls");
-      printf("\033[32m");
-      printf("\033[1m");
-      printf("welcome back to home page :)\n");
-      printf("\033[0m");
-      menu();
-      printf("\033[90mplease enter a option:\033[0m");
-      scanf("%d", &choice);
-      menu_choice_cheker(choice);
+      back_to_menu();
    }
    solar_leap_years(year);
-   return year, choice;
+
+   return year;
 }
 int calender_month_checker(int month)
 {
@@ -848,8 +841,37 @@ void taghvim(int esfand, int tedad_kabiseh, int month, int year)
       printf("\n                       %d                        ", year);
       printf("\033[0m");
    }
-   printf("\n\n");
-   printf(" [0] \033[1m back to menu!\n");
+   if (month < 6)
+   {
+      printf("\n\n");
+      if (month == 1)
+      {
+
+         printf("\033[90m [1] \033[0m\033[1m Tatil\n\n ");
+      }
+      else if (month == 2)
+      {
+
+         printf("\033[90m [2] \033[0m\033[1m Tatil\n\n ");
+      }
+      else if (month == 3)
+      {
+
+         printf("\033[90m [3] \033[0m\033[1m Tatil\n\n ");
+      }
+      else if (month == 4)
+      {
+
+         printf("\033[90m [4] \033[0m\033[1m Tatil\n\n ");
+      }
+      else if (month == 5)
+      {
+
+         printf("\033[90m [5] \033[0m\033[1m Tatil\n\n ");
+      }
+      printf("__________________________________________________");
+   }
+   printf("\n\n[0] \033[1m back to menu!\n");
    printf("__________________________________________________\n\n");
    printf("\033[90mplease enter a year:\033[0m");
    scanf("%d", &year);
@@ -859,10 +881,10 @@ void taghvim(int esfand, int tedad_kabiseh, int month, int year)
    }
    else if (year != 0)
    {
-      calender_year_checker(year);
+      year = calender_year_checker(year);
       printf("\033[90mplease enter a month:\033[0m");
       scanf("%d", &month);
-      calender_month_checker(month);
+      month = calender_month_checker(month);
       printing_month(month);
       taghvim(esfand, tedad_kabiseh, month, year);
    }
